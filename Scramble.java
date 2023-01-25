@@ -16,14 +16,23 @@ public class Scramble {
 	public static StringBuilder main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String[] words = {("he jnmn m ")};
-        StringBuilder reverseString = new StringBuilder();
-
-        for (int i = words.length - 1; i >= 0; i--) {
-            reverseString.append(words[i]).append(" ");
+		String w = "afgs hsgh jgh";
+		
+        String [] words = w.split(" ");
+        
+        int n = words.length;
+        System.out.println(n);
+        Scanner sc = new Scanner(w);
+        String [] s = new String[n];
+        int i =0;
+        while(i<n) {
+        	s[i]=sc.next();
+        	i++;
         }
-        System.out.println("reverseOrderOfWordsString = " + reverseString);
-        return reverseString;
+        
+        for(int j=n-1; j>=0;j--)
+        System.out.print(s[j]+" ");
+        
     }
 
 	}
