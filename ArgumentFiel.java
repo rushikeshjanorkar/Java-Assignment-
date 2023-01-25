@@ -14,17 +14,17 @@ public class ArgumentFiel {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		FileInputStream fr = new FileInputStream(args[0]);
+		FileInputStream fr = new FileInputStream("argsfile1.txt");
 		Scanner sc = new Scanner(fr);
-        FileWriter fw = new FileWriter(args[1]);
+        FileWriter fw = new FileWriter("argsfile2.txt");
 
-        String s = "Computer";
+        String s = "computer";
         String p ;
 
                while (sc.hasNextLine()) {
 	           p=sc.nextLine();
-	          if(p.indexOf(s)> -1) {
-		  fw.write(p);
+	          if((p.indexOf(s))> -1) {
+		  fw.write(p+"\n");
 	}
 }
 
