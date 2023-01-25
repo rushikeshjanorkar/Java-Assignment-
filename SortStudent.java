@@ -7,47 +7,70 @@
 package JavaPractice;
 
 import java.util.Scanner;
-import java.util.Iterator;
 
+
+class SortStd1{
+	private static int count=1;
+	private int Rollno;
+	private String Name;
+	private float per;
+	
+     public SortStd1(String n,float p) {
+    	 Rollno=count++;
+    	 Name= n;
+    	 per=p;
+    	 
+     }
+     public  String toString() {
+    	 return Rollno+"\t"+Name+"\t"+per;
+    	 
+     }
+     public float getper() {
+    	 return per;
+     }
+}
 public class SortStudent {
-	
-	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void  SortStudent(SortStd1 s[]){
+		int n=s.length;
 		
-		try {
-			String name;
-			int rollno=1;
-			double per;
-			
-			Scanner sc=new Scanner(System.in);
-			System.out.println("enterno of student L");
-			int n=Integer.parseInt(sc.nextLine());
-			
-			SortStudent s[] = new SortStudent[n] ;
-			for(int i=0; i<n;i++) {
-				System.out.println("Enter name of student :" +(i+1) + ":");
-				
-				name=sc.nextLine();
-				
-				System.out.println("Enter percentage of student" +(i+1) + ":");
-				
-				per=Double.parseDouble(sc.nextLine());
-				
-				rollno=i+1;
-				
-				s[i] =new SortStudent(name,rollno ,per);
-				
-			}
-			
-			sc.close();
-			for(int i=0 ;i<n ;i++) {
-				s[i].showData();
+		for (int i = 0; i < n-1; i++) {
+			for (int j = 0; j < n-1-i; j++) {
+				if(s[j].getper() > s[j+1].getper()) {
+					SortStd1 t = s[j];
+					s[j] = s[j+1];
+					s[j+1] = s[j];
+					
+				}
 			}
 		}
-			}
-
+	}
+     
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter no ofStudets1:");
+		int n = input.nextInt();
+		
+		SortStd1 p[] = new SortStd1[n];
+		
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter name:");
+			input.nextLine();
+			String name = input.nextLine();
+			
+			System.out.println("Enter percentage:");
+			float per = input.nextFloat();
+			
+			p[i] = new SortStd1(name,per);
+		}
+		
+		SortStudent(p);
+	for (int i = 0; i < n; i++) {
+		System.out.println(p[i]);
+		
+		
+	}
+	
 	}
 
 }
